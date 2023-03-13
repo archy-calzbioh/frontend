@@ -22,10 +22,13 @@ function App() {
         </Col>
         <Col xs={10} className="d-flex flex-column">
           <Row className="bg-secondary" style={{ height: "20%" }}>
-            Row 1
+            <Col xs={4} className="bg-danger" />
+            <Col xs={8}>Row 1</Col>
           </Row>
           <Row className="flex-grow-1">
-            <Col className="bg-success element-1 h-100 d-flex align-items-center justify-content-center">
+            <Col
+              className="bg-success element-1 h-100 d-flex align-items-center justify-content-center"
+            >
               <Table bordered className="w-100">
                 <tbody>
                   <tr>
