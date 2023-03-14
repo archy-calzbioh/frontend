@@ -8,27 +8,27 @@ import NewTask from "./components/NewTask";
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
 import { Container, Row, Col, Table } from "react-bootstrap";
-import { get } from "../../backend/controllers/projectControllers";
+
 
 
 const App = () => {
   const [tasks, setTasks] = useState([])
 
   const getTasks = () => {
-    axios.get('http://localhost:4000/todos').then(response => {
+    axios.get('http://localhost:4000/tasks').then(response => {
       setTasks(response.data)
     })
   }
 
   const handleCreate = (task) => {
-    axios.post(`http://localhost:4000/todos`, task).then(response => {
+    axios.post(`http://localhost:4000/tasks`, task).then(response => {
       setTasks([...tasks, response.data])
     })
   }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4000/todos/${id}`).then(response => {
-      console.log(response.data)
+    axios.delete(`http://localhost:4000/tasks/${id}`).then(response => {
+      //console.log(response.data)
       // setTasks(tasks.filter(task => {
       //   return task.id !== response.id
       // }))

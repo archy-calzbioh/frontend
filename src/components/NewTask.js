@@ -10,7 +10,7 @@ const NewTask = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.handleCreate(task)
+        props.handleCreate(props.task)
         e.target.reset()
     }
 
