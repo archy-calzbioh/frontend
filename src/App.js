@@ -9,6 +9,7 @@ import ShowTask from "./components/ShowTask";
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
+import "./bare.min.css";
 import { Container, Row, Col, Table } from "react-bootstrap";
 
 
