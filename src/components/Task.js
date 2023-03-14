@@ -1,19 +1,24 @@
-import React, { useState } from 'react'
-
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 
 const Task = ({ task, handleShowTask }) => {
+  const showTask = () => {
+    document.getElementById(`${task._id}`).classList.toggle("hidden");
+    handleShowTask(task);
+  };
 
-    const showTask = () => {
-        document.getElementById(`${task._id}`).classList.toggle('hidden')
-        handleShowTask(task)
-    }
+  return (
+    <Row>
+      <Col xs={2}>
+        <h5>{task.title}</h5>
+      </Col>
+      <Col>
+        <button className="btn btn-info" onClick={() => showTask()}>
+          Details
+        </button>
+      </Col>
+    </Row>
+  );
+};
 
-    return (
-        <div className='d-flex justify-content-around'>
-            <h5>{task.title}</h5>
-            <button className='btn btn-info' onClick={() => showTask()}>Details</button>
-        </div>);
-}
-
-export default Task
-
+export default Task;

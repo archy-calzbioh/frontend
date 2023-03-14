@@ -15,13 +15,22 @@ body,
 .category {
   border: solid 1px black;
   margin: 10px;
+  border-radius: 6px;
 }
 
-.my-row {
+/* .my-row {
   border: 1px solid black;
-}
-
+} */
+/* 
 .my-col {
   border: 1px solid black;
 
+} */
+
+
+.hidden{
+  text-align: left;
+  margin: 10px;
 }
+
+
