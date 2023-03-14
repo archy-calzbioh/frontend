@@ -20,22 +20,21 @@ const App = () => {
     })
   }
 
-  const handleCreate = (task) => {
-    axios.post(`http://localhost:4000/tasks`, task).then(response => {
+  const handleCreate = (data) => {
+    axios.post(`http://localhost:4000/tasks`, data).then(response => {
       setTasks([...tasks, response.data])
     })
   }
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:4000/tasks/${id}`).then(response => {
-      //console.log(response.data)
-      // setTasks(tasks.filter(task => {
-      //   return task.id !== response.id
-      // }))
-
+      setTasks(tasks.filter(task => {
+        return task._id !== response.data._id
+      }))
 
     })
   }
+
 
 
 
@@ -71,7 +70,7 @@ const App = () => {
               {tasks.map((task, idx) => {
                 return (
                   <>
-                    <Task task={task} setTasks={setTasks} key={idx} handleDelete={handleDelete} />
+                    <Task task={task} key={idx} handleDelete={handleDelete} />
                   </>
                 )
               })}

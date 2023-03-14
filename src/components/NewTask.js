@@ -10,7 +10,7 @@ const NewTask = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.handleCreate(props.task)
+        props.handleCreate(task)
         e.target.reset()
     }
 
@@ -34,6 +34,15 @@ const NewTask = (props) => {
                     type="text"
                     name="description"
                     placeholder='Description'
+                />
+            </div>
+            <div className="mb-3">
+                <input
+                    onChange={handleChange}
+                    className="form-control"
+                    type="text"
+                    name="date"
+                    placeholder='Date'
                 />
             </div>
             <div className="mb-3">
