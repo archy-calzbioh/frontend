@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+
+//Components
+import Task from './components/Task'
+import NewTask from "./components/NewTask";
+
+//Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
-
 import { Container, Row, Col, Table } from "react-bootstrap";
+import { get } from "../../backend/controllers/projectControllers";
 
-function App() {
+
+const App = () => {
+  const [tasks, setTasks] = useState([])
+
+  const getTasks = () => {
+    axios.get('http://localhost:4000/todos').then(response => {
+      setTasks(response.data)
+    })
+  }
+
+  const handleCreate = (task) => {
+    axios.post(`http://localhost:4000/todos`, task).then(response => {
+      setTasks([...tasks, response.data])
+    })
+  }
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:4000/todos/${id}`).then(response => {
+      console.log(response.data)
+      // setTasks(tasks.filter(task => {
+      //   return task.id !== response.id
+      // }))
+
+
+    })
+  }
+
+
+
+  useEffect(() => {
+    getTasks()
+  }, [])
+
   return (
     <Container fluid className="h-100">
       <Row className="h-100">
@@ -27,52 +66,15 @@ function App() {
           </Row>
           <Row className="flex-grow-1">
             <Col
-              className="bg-success element-1 h-100 d-flex align-items-center justify-content-center"
-            >
-              <Table bordered className="w-100">
-                <tbody>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: "20%" }}>Column 1</td>
-                    <td>Column 2</td>
-                  </tr>
-                </tbody>
-              </Table>
+              className="bg-success element-1 h-100"
+            ><NewTask handleCreate={handleCreate} />
+              {tasks.map((task, idx) => {
+                return (
+                  <>
+                    <Task task={task} setTasks={setTasks} key={idx} handleDelete={handleDelete} />
+                  </>
+                )
+              })}
             </Col>
             <Col className="bg-warning element-2 h-100">Element 2</Col>
           </Row>
