@@ -1,9 +1,15 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
 .bg-primary {
   width: calc(100vh / 6);
+}
+
+.hidden {
+  display: none;
 }
 
 .category {
@@ -17,4 +23,5 @@ html, body, #root {
 
 .my-col {
   border: 1px solid black;
+
 }
