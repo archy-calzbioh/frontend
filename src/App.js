@@ -62,47 +62,48 @@ const App = () => {
   }, [])
 
   return (
-    <Container fluid className="h-100">
-      <Row className="h-100">
-        <Col xs={2} className="bg-primary d-flex flex-column">
-          <ul className="list-group flex-grow-1">
-            <li className="list-group-item border border-primary">
-              Rectangle 1
-            </li>
-            <li className="list-group-item border border-primary">
-              Rectangle 2
-            </li>
-            <li className="list-group-item border border-primary">
-              Rectangle 3
-            </li>
-          </ul>
+    <Container fluid>
+      <Row className="my-row">
+        <Col xs={2} className="vh-100">
+          <Col className="category my-col">a</Col>
+          <Col className="category my-col">b</Col>
+          <Col className="category my-col">c</Col>
         </Col>
-        <Col xs={10} className="d-flex flex-column">
-          <Row className="bg-secondary" style={{ height: "20%" }}>
-            <Col xs={4} className="bg-danger" />
-            <Col xs={8}>Row 1</Col>
+        <Col>
+          <Row className="h-25 my-row">
+            <Col xs={12} className="my-col">
+              <Row className="h-100 my-row">
+                <Col className="d-flex align-items-center my-col">
+                  <Col className="h-50 my-col">A</Col>
+                </Col>
+                <Col className="my-col">b</Col>
+                <Col>
+                  <Col className="category h-25 my-col">a</Col>
+                  <Col className="category my-col">b</Col>
+                  <Col className="category h-25 my-col">c</Col>
+                </Col>
+              </Row>
+            </Col>
           </Row>
-          <Row className="flex-grow-1">
-            <Col
-              className="bg-success element-1 h-100"
-            ><NewTask handleCreate={handleCreate} />
+          <Row className="h-75 my-row">
+            <Col xs={6} className="my-col">
+              <NewTask handleCreate={handleCreate} />
               {tasks.map((task, idx) => {
                 return (
                   <>
                     <Task task={task} key={idx} handleShowTask={handleShowTask} />
                   </>
-                )
+                );
               })}
             </Col>
-            <Col className="bg-warning element-2 h-100">
-              {tasks.map((task, idx) => {
+            <Col xs={6}>
+            {tasks.map((task, idx) => {
                 return (
                   <>
                     <ShowTask task={task} handleEdit={handleEdit} handleDelete={handleDelete} idx={idx} />
                     <EditTask task={task} id={idx} handleEdit={handleEdit} />
                   </>
                 )
-
               })}
             </Col>
           </Row>
@@ -112,4 +113,8 @@ const App = () => {
   );
 }
 
+
+
 export default App;
+
+
