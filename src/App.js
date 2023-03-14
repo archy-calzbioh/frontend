@@ -4,6 +4,8 @@ import axios from 'axios'
 //Components
 import Task from './components/Task'
 import NewTask from "./components/NewTask";
+import EditTask from "./components/EditTask";
+import ShowTask from "./components/ShowTask";
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
@@ -35,6 +37,23 @@ const App = () => {
     })
   }
 
+  const handleEdit = (data) => {
+    console.log(data)
+    document.getElementById(`${data._id + 1}`).classList.remove('hidden')
+    axios.put(`http://localhost:4000/tasks/${data._id}`, data).then(response => {
+      setTasks(tasks.map(task => {
+        return task._id !== data._id ? task : data
+      }))
+
+    })
+  }
+
+  const handleShowTask = (data) => {
+    axios.get(`http://localhost:4000/tasks/${data._id}`).then(response => {
+      //setTasks(response.data)
+    })
+
+  }
 
 
 
@@ -70,12 +89,22 @@ const App = () => {
               {tasks.map((task, idx) => {
                 return (
                   <>
-                    <Task task={task} key={idx} handleDelete={handleDelete} />
+                    <Task task={task} key={idx} handleShowTask={handleShowTask} />
                   </>
                 )
               })}
             </Col>
-            <Col className="bg-warning element-2 h-100">Element 2</Col>
+            <Col className="bg-warning element-2 h-100">
+              {tasks.map((task, idx) => {
+                return (
+                  <>
+                    <ShowTask task={task} handleEdit={handleEdit} handleDelete={handleDelete} idx={idx} />
+                    <EditTask task={task} id={idx} handleEdit={handleEdit} />
+                  </>
+                )
+
+              })}
+            </Col>
           </Row>
         </Col>
       </Row>
