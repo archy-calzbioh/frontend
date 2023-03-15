@@ -23,5 +23,15 @@ body,
 
 .my-col {
   border: 1px solid black;
+}
 
+.div-map-container {
+  width: 20rem;
+  height: 10rem;
+  margin: 1rem 0;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
 }

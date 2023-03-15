@@ -6,6 +6,8 @@ import Task from './components/Task'
 import NewTask from "./components/NewTask";
 import EditTask from "./components/EditTask";
 import ShowTask from "./components/ShowTask";
+import Map from './components/Map'
+
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
@@ -15,6 +17,7 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 
 const App = () => {
   const [tasks, setTasks] = useState([])
+  const [showTask, setShowTask] = useState({})
 
   const getTasks = () => {
     axios.get('http://localhost:4000/tasks').then(response => {
@@ -50,7 +53,7 @@ const App = () => {
 
   const handleShowTask = (data) => {
     axios.get(`http://localhost:4000/tasks/${data._id}`).then(response => {
-      //setTasks(response.data)
+      setShowTask(response.data)
     })
 
   }
@@ -76,10 +79,12 @@ const App = () => {
                 <Col className="d-flex align-items-center my-col">
                   <Col className="h-50 my-col">A</Col>
                 </Col>
-                <Col className="my-col">b</Col>
+                <Col className="my-col"></Col>
                 <Col>
                   <Col className="category h-25 my-col">a</Col>
-                  <Col className="category my-col">b</Col>
+                  <Col className="category my-col">
+                    b
+                  </Col>
                   <Col className="category h-25 my-col">c</Col>
                 </Col>
               </Row>
@@ -97,7 +102,7 @@ const App = () => {
               })}
             </Col>
             <Col xs={6}>
-            {tasks.map((task, idx) => {
+              {tasks.map((task, idx) => {
                 return (
                   <>
                     <ShowTask task={task} handleEdit={handleEdit} handleDelete={handleDelete} idx={idx} />

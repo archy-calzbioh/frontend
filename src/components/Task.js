@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 const Task = ({ task, handleShowTask }) => {
 
-    const showTask = () => {
+    const showTask = (e) => {
+
         document.getElementById(`${task._id}`).classList.toggle('hidden')
         handleShowTask(task)
     }
