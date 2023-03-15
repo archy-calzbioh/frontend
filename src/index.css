@@ -2,7 +2,11 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: aliceblue;
+
 }
+
+
 
 .bg-primary {
   width: calc(100vh / 6);
@@ -16,16 +20,21 @@ body,
   border: solid 1px black;
   margin: 10px;
   border-radius: 6px;
+  background-color: #C6D7FD;
 }
 
 /* .my-row {
   border: 1px solid black;
 } */
-/* 
-.my-col {
-  border: 1px solid black;
 
-} */
+
+.left-col {
+
+  padding: 10px;
+  
+  background-color: #DBE7FD;
+  margin: 10px;
+}
 
 
 .hidden{
@@ -33,4 +42,27 @@ body,
   margin: 10px;
 }
 
+
+.task-right{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: -10px;
+  background-color: #DBE7FD;
+}
+
+.task-left{
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+  background-color: #DBE7FD;
+}
+
+.top-row{
+  margin-bottom: 10px;
+  background-color: #DBE7FD;
+}
+
+.form-control{
+  margin-top: 10px;
+}
 
