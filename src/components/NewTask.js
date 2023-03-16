@@ -23,7 +23,7 @@ const NewTask = (props) => {
     return (<>
         <h3>New Task</h3>
         <form onSubmit={handleSubmit}>
-            <div className="mb-3">
+            <div className="mb-4">
                 <input
                     onChange={handleChange}
                     className="form-control"
@@ -32,7 +32,7 @@ const NewTask = (props) => {
                     placeholder='Title'
                 />
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
                 <input
                     onChange={handleChange}
                     className="form-control"
@@ -41,17 +41,17 @@ const NewTask = (props) => {
                     placeholder='Description'
                 />
             </div>
-            <div className="mb-3">
-                {/* <input
+            <div className="mb-4">
+                <input
                     onChange={handleChange}
                     className="form-control"
                     type="text"
                     name="date"
-                    placeholder='Date' /> */}
-                <PickADate />
+                    placeholder='Date' />
+
 
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
                 <input
                     onChange={handleChange}
                     className="form-control"
