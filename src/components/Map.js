@@ -15,16 +15,14 @@ import {
 import "@reach/combobox/styles.css";
 
 
+const places = ['places']
 
 const Home = () => {
-
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyBA3_wIWr7GME5kLqbp4gua65hAIdoTgDg",
-        libraries: ['places'],
+        libraries: places,
     })
-
     if (!isLoaded) return <div>Loading...</div>
-
     return (
         <Map />
     );
@@ -36,7 +34,6 @@ const Map = () => {
 
     return (
         <>
-
             <div>
                 <PlacesAutocomplete setSelected={setSelected} />
             </div>
@@ -45,9 +42,7 @@ const Map = () => {
             </GoogleMap >
 
         </>
-
     )
-
 }
 
 const PlacesAutocomplete = ({ setSelected }) => {
@@ -69,7 +64,6 @@ const PlacesAutocomplete = ({ setSelected }) => {
     }
 
     return (
-
         <Combobox onSelect={handleSelect}>
             <ComboboxInput value={value} onChange={e => setValue(e.target.value)} disabled={!ready}
                 className="combobox-input" placeholder="Search an address" />

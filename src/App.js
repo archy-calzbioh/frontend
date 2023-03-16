@@ -9,6 +9,7 @@ import ShowTask from "./components/ShowTask";
 import Map from './components/Map'
 
 
+
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
 import "./bare.min.css";
@@ -119,17 +120,6 @@ const App = () => {
               className="p-5  border task-left rounded border-primary"
             >
               <NewTask handleCreate={handleCreate} />
-              {tasks.map((task, idx) => {
-                return (
-                  <>
-                    <Task
-                      task={task}
-                      key={idx}
-                      handleShowTask={handleShowTask}
-                    />
-                  </>
-                );
-              })}
             </Col>
             <Col
               xs={10}
@@ -139,6 +129,15 @@ const App = () => {
               {tasks.map((task, idx) => {
                 return (
                   <>
+                    <ul className="list-unstyled">
+                      <li className="d-flex align-items-center">{`${idx + 1}.`}
+                        <Task
+                          task={task}
+                          key={idx}
+                          handleShowTask={handleShowTask}
+                        /></li>
+
+                    </ul>
                     <ShowTask
                       task={task}
                       handleEdit={handleEdit}
