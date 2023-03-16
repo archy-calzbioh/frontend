@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { Col, Row } from "react-bootstrap";
-
 const ShowTask = ({ task, handleDelete, handleEdit }) => {
 
   return (
