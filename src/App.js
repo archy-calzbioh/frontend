@@ -64,30 +64,35 @@ const App = () => {
 
   return (
     <Container fluid className="cont">
-      <Row className="my-row ">
+      <Row className="">
         <Col
-          xs={2}
-          className="vh-100 left-col m-3 border border-primary rounded"
+          xs={4}
+          xl={2}
+          className="vh-100 left-col m-5  border border-primary rounded"
         >
-          <Row className="h-25 d-flex flex-column ">
+          <Row className="h-25 p-3 d-flex flex-column ">
             <Col className="category my-col">a</Col>
             <Col className="category my-col">b</Col>
             <Col className="category my-col">c</Col>
           </Row>
           <Row className="h-25"></Row>
           <Row className="h-25"></Row>
-          <Row className="h-25">
+          <Row className="h-25 bottom-left">
             <Col>
-              <img src="https://i.imgur.com/BmTZGuy.png" alt="list" />
+              <img
+                src="https://i.imgur.com/BmTZGuy.png"
+                alt="list"
+                className="bottom-left responsive "
+              />
             </Col>
           </Row>
         </Col>
 
-        <Col>
-          <Row className="top-row mt-3 h-25 border border-primary rounded">
+        <Col className="vh-100 d-flex flex-column justify-content-around">
+          <Row className="top-row  m-5 h-25 border border-primary rounded">
             <Col xs={12} className="my-col">
               <Row className="h-100 my-row">
-                <Col className="d-flex align-items-center my-col">
+                <Col className="d-flex align-items-center ">
                   <Col className="my-col">
                     <img src="https://imgur.com/juTiRg4.png" alt="logo" />
                   </Col>
@@ -101,8 +106,12 @@ const App = () => {
               </Row>
             </Col>
           </Row>
-          <Row className="h-75 my-row d-flex justify-content-between">
-            <Col xs={5} className="p-5 border task-left rounded border-primary">
+          <Row className="h-75 d-flex justify-content-between">
+            <Col
+              xs={10}
+              xl={5}
+              className="p-5  border task-left rounded border-primary"
+            >
               <NewTask handleCreate={handleCreate} />
               {tasks.map((task, idx) => {
                 return (
@@ -116,7 +125,11 @@ const App = () => {
                 );
               })}
             </Col>
-            <Col xs={6} className=" p-5 task-right border border-primary rounded">
+            <Col
+              xs={10}
+              xl={5}
+              className=" p-5 task-right  border border-primary rounded"
+            >
               {tasks.map((task, idx) => {
                 return (
                   <>
