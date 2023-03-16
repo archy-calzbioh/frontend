@@ -2,6 +2,7 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: aliceblue;
 }
 
 .bg-primary {
@@ -13,24 +14,40 @@ body,
 }
 
 .category {
-  border: solid 1px black;
-  margin: 10px;
-  border-radius: 6px;
+  background-color: #c6d7fd;
 }
 
-/* .my-row {
-  border: 1px solid black;
-} */
-/* 
-.my-col {
-  border: 1px solid black;
+.left-col {
+  background-color: #dbe7fd;
+}
 
-} */
-
-
-.hidden{
+.hidden {
   text-align: left;
   margin: 10px;
 }
 
+.task-right {
+  margin: 36px;
+  background-color: #dbe7fd;
+}
 
+.task-left {
+  margin: 36px;
+  background-color: #dbe7fd;
+  margin-right: -18px;
+}
+
+.top-row {
+  margin-bottom: 10px;
+  background-color: #dbe7fd;
+}
+
+.form-control {
+  margin-top: 10px;
+}
+
+.responsive {
+  max-width: 80%;
+  height: auto;
+  margin-left: 30px;
+}
