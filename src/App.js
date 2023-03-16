@@ -11,7 +11,8 @@ import Map from './components/Map'
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
-import { Container, Row, Col } from "react-bootstrap";
+import "./bare.min.css";
+import { Container, Row, Col, Table } from "react-bootstrap";
 
 
 

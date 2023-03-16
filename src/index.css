@@ -1,0 +1,28 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.bg-primary {
+  width: calc(100vh / 6);
+}
+
+.hidden {
+  display: none;
+}
+
+.category {
+  border: solid 1px black;
+  margin: 10px;
+}
+
+.my-row {
+  border: 1px solid black;
+}
+
+.my-col {
+  border: 1px solid black;
+
+}
+
