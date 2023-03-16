@@ -7,12 +7,13 @@ import NewTask from "./components/NewTask";
 import EditTask from "./components/EditTask";
 import ShowTask from "./components/ShowTask";
 import Map from './components/Map'
-import PickADate from "./components/DatePicker";
+
 
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
 import "./bare.min.css";
+import "./index.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 
@@ -74,10 +75,10 @@ const App = () => {
           xl={2}
           className="vh-100 left-col m-5  border border-primary rounded"
         >
-          <Row className="h-25 p-3 d-flex flex-column ">
-            <Col className="category my-col">a</Col>
-            <Col className="category my-col">b</Col>
-            <Col className="category my-col">c</Col>
+          <Row className="h-25 p-4 d-flex flex-column ">
+            <Col className="category border border-primary rounded ">a</Col>
+            <Col className="category border border-primary rounded">b</Col>
+            <Col className="category border border-primary rounded">c</Col>
           </Row>
           <Row className="h-25"></Row>
           <Row className="h-25"></Row>
@@ -94,20 +95,20 @@ const App = () => {
 
         <Col className="vh-100 d-flex flex-column justify-content-around">
           <Row className="top-row  m-5 h-25 border border-primary rounded">
-            <Col xs={12} className="my-col">
-              <Row className="h-100 my-row">
+            <Col xs={12} className="">
+              <Row className="h-100 ">
                 <Col className="d-flex align-items-center ">
-                  <Col className="my-col">
+                  <Col className="">
                     <img src="https://imgur.com/juTiRg4.png" alt="logo" />
                   </Col>
                 </Col>
-                <Col className="my-col"></Col>
+                <Col className=""></Col>
                 <Col>
-                  <Col className="category h-25 my-col">a</Col>
-                  <Col className="category my-col">
-                    b
+                  <Col className="category h-25 border border-primary rounded">
+                    a
                   </Col>
-                  <Col className="category h-25 my-col">c</Col>
+                  <Col className="category border border-primary rounded">b</Col>
+                  <Col className="category h-25 border border-primary rounded">c</Col>
                 </Col>
               </Row>
             </Col>
@@ -119,17 +120,6 @@ const App = () => {
               className="p-5  border task-left rounded border-primary"
             >
               <NewTask handleCreate={handleCreate} />
-              {tasks.map((task, idx) => {
-                return (
-                  <>
-                    <Task
-                      task={task}
-                      key={idx}
-                      handleShowTask={handleShowTask}
-                    />
-                  </>
-                );
-              })}
             </Col>
             <Col
               xs={10}
@@ -139,6 +129,15 @@ const App = () => {
               {tasks.map((task, idx) => {
                 return (
                   <>
+                    <ul className="list-unstyled">
+                      <li className="d-flex align-items-center">{`${idx + 1}.`}
+                        <Task
+                          task={task}
+                          key={idx}
+                          handleShowTask={handleShowTask}
+                        /></li>
+
+                    </ul>
                     <ShowTask
                       task={task}
                       handleEdit={handleEdit}
