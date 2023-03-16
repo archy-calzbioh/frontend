@@ -7,6 +7,7 @@ import NewTask from "./components/NewTask";
 import EditTask from "./components/EditTask";
 import ShowTask from "./components/ShowTask";
 import Map from './components/Map'
+import PickADate from "./components/DatePicker";
 
 
 //Bootstrap-React
@@ -77,7 +78,7 @@ const App = () => {
             <Col xs={12} className="my-col">
               <Row className="h-100 my-row">
                 <Col className="d-flex align-items-center my-col">
-                  <Col className="h-50 my-col">A</Col>
+                  <Col className="h-50 my-col"><PickADate /></Col>
                 </Col>
                 <Col className="my-col"></Col>
                 <Col>

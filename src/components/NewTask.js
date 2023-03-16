@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Home from './Map'
+import PickADate from './DatePicker'
 
 const NewTask = (props) => {
     const [task, setTask] = useState({})
@@ -7,6 +8,10 @@ const NewTask = (props) => {
     const handleChange = (e) => {
         setTask({ ...task, [e.target.name]: e.target.value })
     }
+
+    // const handleChangeDate = (e) => {
+    //     setTask({ ...task, [e.target.name]: })
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -37,13 +42,14 @@ const NewTask = (props) => {
                 />
             </div>
             <div className="mb-3">
-                <input
+                {/* <input
                     onChange={handleChange}
                     className="form-control"
                     type="text"
                     name="date"
-                    placeholder='Date'
-                />
+                    placeholder='Date' /> */}
+                <PickADate />
+
             </div>
             <div className="mb-3">
                 <input
