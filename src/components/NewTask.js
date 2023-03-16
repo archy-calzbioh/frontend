@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Home from './Map'
 
 const NewTask = (props) => {
     const [task, setTask] = useState({})
@@ -55,6 +56,9 @@ const NewTask = (props) => {
             </div>
             <input type='submit' />
         </form>
+        <div className='div-map-container'>
+            <Home />
+        </div>
     </>);
 }
 

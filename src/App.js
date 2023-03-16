@@ -93,13 +93,14 @@ const App = () => {
           <Row className="h-75 my-row">
             <Col xs={6} className="my-col">
               <NewTask handleCreate={handleCreate} />
-              {tasks.map((task, idx) => {
-                return (
-                  <>
+              <div className="mt-5">
+                {tasks.map((task, idx) => {
+                  return (
+
                     <Task task={task} key={idx} handleShowTask={handleShowTask} />
-                  </>
-                );
-              })}
+                  );
+                })}
+              </div>
             </Col>
             <Col xs={6}>
               {tasks.map((task, idx) => {

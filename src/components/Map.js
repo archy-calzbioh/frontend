@@ -45,9 +45,7 @@ const Map = () => {
             </GoogleMap >
 
         </>
-
     )
-
 }
 
 const PlacesAutocomplete = ({ setSelected }) => {
