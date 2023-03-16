@@ -1,5 +1,3 @@
-
-
 const Task = ({ task, handleShowTask }) => {
   const showTask = () => {
     document.getElementById(`${task._id}`).classList.toggle("hidden");

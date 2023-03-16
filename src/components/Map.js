@@ -10,7 +10,7 @@ import {
     ComboboxPopover,
     ComboboxList,
     ComboboxOption,
-    ComboboxOptionText,
+    // ComboboxOptionText
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
