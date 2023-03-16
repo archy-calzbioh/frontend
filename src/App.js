@@ -10,7 +10,7 @@ import ShowTask from "./components/ShowTask";
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
 import "./bare.min.css";
-import { Container, Row, Col, Table } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 
 
@@ -63,21 +63,41 @@ const App = () => {
   }, [])
 
   return (
-    <Container fluid>
-      <Row className="my-row">
-        <Col xs={2} className="vh-100">
-          <Col className="category my-col">a</Col>
-          <Col className="category my-col">b</Col>
-          <Col className="category my-col">c</Col>
+    <Container fluid className="cont">
+      <Row className="">
+        <Col
+          xs={4}
+          xl={2}
+          className="vh-100 left-col m-5  border border-primary rounded"
+        >
+          <Row className="h-25 p-3 d-flex flex-column ">
+            <Col className="category my-col">a</Col>
+            <Col className="category my-col">b</Col>
+            <Col className="category my-col">c</Col>
+          </Row>
+          <Row className="h-25"></Row>
+          <Row className="h-25"></Row>
+          <Row className="h-25 bottom-left">
+            <Col>
+              <img
+                src="https://i.imgur.com/BmTZGuy.png"
+                alt="list"
+                className="bottom-left responsive "
+              />
+            </Col>
+          </Row>
         </Col>
-        <Col>
-          <Row className="h-25 my-row">
+
+        <Col className="vh-100 d-flex flex-column justify-content-around">
+          <Row className="top-row  m-5 h-25 border border-primary rounded">
             <Col xs={12} className="my-col">
               <Row className="h-100 my-row">
-                <Col className="d-flex align-items-center my-col">
-                  <Col className="h-50 my-col">A</Col>
+                <Col className="d-flex align-items-center ">
+                  <Col className="my-col">
+                    <img src="https://imgur.com/juTiRg4.png" alt="logo" />
+                  </Col>
                 </Col>
-                <Col className="my-col">b</Col>
+                <Col className="my-col"></Col>
                 <Col>
                   <Col className="category h-25 my-col">a</Col>
                   <Col className="category my-col">b</Col>
@@ -86,25 +106,42 @@ const App = () => {
               </Row>
             </Col>
           </Row>
-          <Row className="h-75 my-row">
-            <Col xs={6} className="my-col">
+          <Row className="h-75 d-flex justify-content-between">
+            <Col
+              xs={10}
+              xl={5}
+              className="p-5  border task-left rounded border-primary"
+            >
               <NewTask handleCreate={handleCreate} />
               {tasks.map((task, idx) => {
                 return (
                   <>
-                    <Task task={task} key={idx} handleShowTask={handleShowTask} />
+                    <Task
+                      task={task}
+                      key={idx}
+                      handleShowTask={handleShowTask}
+                    />
                   </>
                 );
               })}
             </Col>
-            <Col xs={6}>
-            {tasks.map((task, idx) => {
+            <Col
+              xs={10}
+              xl={5}
+              className=" p-5 task-right  border border-primary rounded"
+            >
+              {tasks.map((task, idx) => {
                 return (
                   <>
-                    <ShowTask task={task} handleEdit={handleEdit} handleDelete={handleDelete} idx={idx} />
+                    <ShowTask
+                      task={task}
+                      handleEdit={handleEdit}
+                      handleDelete={handleDelete}
+                      idx={idx}
+                    />
                     <EditTask task={task} id={idx} handleEdit={handleEdit} />
                   </>
-                )
+                );
               })}
             </Col>
           </Row>
