@@ -1,16 +1,36 @@
 import { useState } from 'react'
 import Home from './Map'
-import PickADate from './DatePicker'
+//import PickADate from './DatePicker'
+
+
+
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
+// const PickADate = () => {
+//     const [selectedDate, setSelectedDate] = useState(null)
+
+//     console.log(selectedDate)
+
+
+
+//     return (<>
+
+//     </>);
+// }
 
 const NewTask = (props) => {
+
     const [task, setTask] = useState({})
+    const [selectedDate, setSelectedDate] = useState(null)
 
     const handleChange = (e) => {
         setTask({ ...task, [e.target.name]: e.target.value })
     }
 
     // const handleChangeDate = (e) => {
-    //     setTask({ ...task, [e.target.name]: })
+    //     setSelectedDate(date)
+    //     setTask({ ...task, [e.target.name]: selectedDate })
     // }
 
     const handleSubmit = (e) => {
@@ -19,6 +39,7 @@ const NewTask = (props) => {
         e.target.reset()
     }
 
+    console.log(selectedDate)
 
     return (<>
         <h3>New Task</h3>
@@ -42,14 +63,7 @@ const NewTask = (props) => {
                 />
             </div>
             <div className="mb-4">
-                <input
-                    onChange={handleChange}
-                    className="form-control"
-                    type="text"
-                    name="date"
-                    placeholder='Date' />
-
-
+                <DatePicker selected={selectedDate} selectedDate={selectedDate} onChange={date => setSelectedDate(date)} minDate={new Date()} />
             </div>
             <div className="mb-4">
                 <input
