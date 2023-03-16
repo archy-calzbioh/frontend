@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 //Components
-import Task from '../components/Task'
+import Task from "../components/Task";
 import NewTask from "../components/NewTask";
 import EditTask from "../components/EditTask";
 import ShowTask from "../components/ShowTask";
-import Map from '../components/Map'
-
-
+import Map from "../components/Map";
 
 //Bootstrap-React
 import "bootstrap/dist/css/bootstrap.css";
@@ -16,56 +14,63 @@ import "../bare.min.css";
 import "../index.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-
-
-const App = () => {
-  const [tasks, setTasks] = useState([])
-  const [showTask, setShowTask] = useState({})
+const Tasks = () => {
+  const [tasks, setTasks] = useState([]);
+  const [showTask, setShowTask] = useState({});
 
   const getTasks = () => {
-    axios.get('https://taskawaybackend.onrender.com/ta/tasks').then(response => {
-      setTasks(response.data)
-    })
-  }
+    axios
+      .get("https://taskawaybackend.onrender.com/ta/tasks")
+      .then((response) => {
+        setTasks(response.data);
+      });
+  };
 
   const handleCreate = (data) => {
-    axios.post(`https://taskawaybackend.onrender.com/ta/tasks`, data).then(response => {
-      setTasks([...tasks, response.data])
-    })
-  }
+    axios
+      .post(`https://taskawaybackend.onrender.com/ta/tasks`, data)
+      .then((response) => {
+        setTasks([...tasks, response.data]);
+      });
+  };
 
   const handleDelete = (id) => {
-    axios.delete(`https://taskawaybackend.onrender.com/ta/tasks/${id}`).then(response => {
-      setTasks(tasks.filter(task => {
-        return task._id !== response.data._id
-      }))
-
-    })
-  }
+    axios
+      .delete(`https://taskawaybackend.onrender.com/ta/tasks/${id}`)
+      .then((response) => {
+        setTasks(
+          tasks.filter((task) => {
+            return task._id !== response.data._id;
+          })
+        );
+      });
+  };
 
   const handleEdit = (data) => {
-    console.log(data)
-    document.getElementById(`${data._id + 1}`).classList.remove('hidden')
-    axios.put(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`, data).then(response => {
-      setTasks(tasks.map(task => {
-        return task._id !== data._id ? task : data
-      }))
-
-    })
-  }
+    console.log(data);
+    document.getElementById(`${data._id + 1}`).classList.remove("hidden");
+    axios
+      .put(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`, data)
+      .then((response) => {
+        setTasks(
+          tasks.map((task) => {
+            return task._id !== data._id ? task : data;
+          })
+        );
+      });
+  };
 
   const handleShowTask = (data) => {
-    axios.get(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`).then(response => {
-      setShowTask(response.data)
-    })
-
-  }
-
-
+    axios
+      .get(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`)
+      .then((response) => {
+        setShowTask(response.data);
+      });
+  };
 
   useEffect(() => {
-    getTasks()
-  }, [])
+    getTasks();
+  }, []);
 
   return (
     <Container fluid className="cont">
@@ -107,8 +112,12 @@ const App = () => {
                   <Col className="category h-25 border border-primary rounded">
                     a
                   </Col>
-                  <Col className="category border border-primary rounded">b</Col>
-                  <Col className="category h-25 border border-primary rounded">c</Col>
+                  <Col className="category border border-primary rounded">
+                    b
+                  </Col>
+                  <Col className="category h-25 border border-primary rounded">
+                    c
+                  </Col>
                 </Col>
               </Row>
             </Col>
@@ -130,13 +139,14 @@ const App = () => {
                 return (
                   <>
                     <ul className="list-unstyled">
-                      <li className="d-flex align-items-center">{`${idx + 1}.`}
+                      <li className="d-flex align-items-center">
+                        {`${idx + 1}.`}
                         <Task
                           task={task}
                           key={idx}
                           handleShowTask={handleShowTask}
-                        /></li>
-
+                        />
+                      </li>
                     </ul>
                     <ShowTask
                       task={task}
@@ -154,8 +164,6 @@ const App = () => {
       </Row>
     </Container>
   );
-}
+};
 
-
-
-export default App;
+export default Tasks;
