@@ -23,19 +23,19 @@ const App = () => {
   const [showTask, setShowTask] = useState({})
 
   const getTasks = () => {
-    axios.get('http://localhost:4000/ta/tasks').then(response => {
+    axios.get('https://taskawaybackend.onrender.com/ta/tasks').then(response => {
       setTasks(response.data)
     })
   }
 
   const handleCreate = (data) => {
-    axios.post(`http://localhost:4000/ta/tasks`, data).then(response => {
+    axios.post(`https://taskawaybackend.onrender.com/ta/tasks`, data).then(response => {
       setTasks([...tasks, response.data])
     })
   }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4000/ta/tasks/${id}`).then(response => {
+    axios.delete(`https://taskawaybackend.onrender.com/ta/tasks/${id}`).then(response => {
       setTasks(tasks.filter(task => {
         return task._id !== response.data._id
       }))
@@ -46,7 +46,7 @@ const App = () => {
   const handleEdit = (data) => {
     console.log(data)
     document.getElementById(`${data._id + 1}`).classList.remove('hidden')
-    axios.put(`http://localhost:4000/ta/tasks/${data._id}`, data).then(response => {
+    axios.put(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`, data).then(response => {
       setTasks(tasks.map(task => {
         return task._id !== data._id ? task : data
       }))
@@ -55,7 +55,7 @@ const App = () => {
   }
 
   const handleShowTask = (data) => {
-    axios.get(`http://localhost:4000/ta/tasks/${data._id}`).then(response => {
+    axios.get(`https://taskawaybackend.onrender.com/ta/tasks/${data._id}`).then(response => {
       setShowTask(response.data)
     })
 
