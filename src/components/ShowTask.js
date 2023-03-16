@@ -12,8 +12,10 @@ const ShowTask = ({ task, handleDelete, handleEdit }) => {
             <div className='div-map-container'>
                 <Home />
             </div>
-            <button className="btn btn-secondary" onClick={() => handleDelete(task._id)}>Delete</button>
-            <button className="btn btn-info" onClick={() => handleEdit(task)}>Edit</button>
+            <div className="btn-container mt-5">
+                <button className="btn btn-secondary" onClick={() => handleDelete(task._id)}>Delete</button>
+                <button className="btn btn-info" onClick={() => handleEdit(task)}>Edit</button>
+            </div>
         </div>);
 }
 
